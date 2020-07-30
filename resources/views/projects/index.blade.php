@@ -2,17 +2,23 @@
 
 @section('content')
 
-<div class="flex items-center mb-4">
-    <h1 class="mr-auto">Birdboard</h1>
-    <a href="/projects/create">New Project</a>
-
+<header class="flex items-center mb-4 py-4">
+<div class="flex justify-between items-center w-full">
+    <h3 class="text-xl text-gray-600 font-normal">My Projects</h3>
+    <a href="/projects/create" class="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">New Project</a>
 </div>
 
-<div class="flex">
+</header>
+
+<main class="lg:flex lg:flex-wrap -mx-3">
     @forelse ($projects as $project)
-    <div class="bg-white mr-4 rounded p-5 shadow w-1/3" style="height: 200px">
-        <h2 class="font-normal text-xl py-4">{{ $project->title }}</h2>
-        <div class="text-gray-600">{{ Illuminate\Support\str::limit($project->description, 150) }}</div>
+    <div class="lg:w-1/3 px-3 pb-6">
+        <div class="bg-white rounded-lg p-5 shadow" style="height: 200px">
+            <h2 class="font-normal text-xl py-4 -ml-5  border-l-4 border-blue-500 text-blue-700 p-4 -mr-5">
+                <a href="{{ $project->path() }}" class="text-black">{{ $project->title }}</a>
+            </h2>
+            <div class="text-gray-600">{{ Illuminate\Support\str::limit($project->description, 150) }}</div>
+        </div>
     </div>
     @empty
     <div>No projects yet.</div>
@@ -20,7 +26,7 @@
 </div>
 
 
-</body>
+</main>
 
 </html>
 @endsection
