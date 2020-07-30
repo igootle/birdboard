@@ -14,4 +14,6 @@
 // Bootstrap
 // @import '~bootstrap/scss/bootstrap';
 
-
+.card {
+    @apply .bg-white .p-5 .rounded-lg .shadow ;
+}
