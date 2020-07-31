@@ -18,18 +18,11 @@
                 <h2 class="text-lg font-normal text-gray-600 mb-3">
                     Tasks
                 </h2>
-                <div class="bg-white rounded-lg p-5 shadow mb-3">
-                    Lorem ipsum dolor.
-                </div>
-                <div class="bg-white rounded-lg p-5 shadow mb-3">
-                    Lorem ipsum dolor.
-                </div>
-                <div class="bg-white rounded-lg p-5 shadow mb-3">
-                    Lorem ipsum dolor.
-                </div>
-                <div class="bg-white rounded-lg p-5 shadow">
-                    Lorem ipsum dolor.
-                </div>
+                @foreach ($project->tasks as $task)
+                    <div class="bg-white rounded-lg p-5 shadow">
+                        {{ $task->body }}
+                    </div>
+                @endforeach
             </div>
 
             <h2 class="text-lg font-normal text-gray-600 mb-3">
