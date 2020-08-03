@@ -11,8 +11,8 @@ class ProjectsController extends Controller
 {
     public function index()
     {
-        $projects = auth()->user()->projects; // In the next episode.
-
+      //   $projects = auth()->user()->projects()->orderBy('updated_at', 'desc')->get();
+        $projects = auth()->user()->projects;
         return view('projects.index', compact('projects'));
     }
 
