@@ -36,7 +36,7 @@ class ProjectTasksTest extends TestCase
         $task = $project->addTask('test task');
 
         $this->patch($task->path(), ['body'=> 'changed'])
-               ->assertStatus(403);
+               ->assertStatus(404);
 
         $this->assertDatabaseMissing('tasks', ['body' => 'changed']);
     }
