@@ -89,6 +89,19 @@ class ManageProjectsTest extends TestCase
 
     }
 
+    public function test_a_user_can_update_a_projects_general_notes()
+    {
+
+
+      $project = ProjectTestFactory::create();
+
+      // $this->actingAs($project->owner)->patch($project->path(), $attributes = [
+      //     'notes' => 'Changed'
+      // ]);
+         $this->get($project->path(). '/edit')->assertRedirect('login');
+
+    }
+
     public function test_a_user_can_view_their_project()
     {
         // actingAs กับ be ต่างกัน
