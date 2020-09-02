@@ -38,7 +38,7 @@ class ProjectsController extends Controller
        return view('projects.edit', compact('project'));
     }
 
-    public function update(UpdateProjectRequest $request )
+    public function update(UpdateProjectRequest $request)
     {
 
 
