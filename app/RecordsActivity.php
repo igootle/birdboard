@@ -41,7 +41,7 @@ trait RecordsActivity
       if (isset(static::$recordableEvents)) {
          return static::$recordableEvents;
       } else {
-         return ['created', 'updated', 'deleted'];
+         return ['created', 'updated'];
       }
 
    }
@@ -49,13 +49,23 @@ trait RecordsActivity
    public function recordActivity($description)
 
    {
-     // var_dump($this->old, $this->toArray());
+
      $this->activity()->create([
+        'user_id' => $this->activityOwner()->id,
         'description' => $description,
         'changes' => $this->activityChanges(),
         'project_id' => class_basename($this) === 'Project' ? $this->id : $this->project_id
      ]);
 
+   }
+
+   public function activityOwner()
+   {
+      # code...
+      return ($this->project ?? $this)->owner;
+      // $project = $this->project ?? $this;
+
+      // return $project->owner;
    }
 
    public function activity()
