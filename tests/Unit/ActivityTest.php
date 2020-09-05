@@ -27,14 +27,14 @@ class ActivityTest extends TestCase
       $user = $this->signIn();
 
 
-      // $project = ProjectTestFactory::ownedBy($user)->create();
+      $project = ProjectTestFactory::ownedBy($user)->create();
 
-      $project = factory(Project::class)->create();
+      // $project = factory(Project::class)->create();
+      // $this->assertInstanceOf(User::class, $project->activity->first()->user);
+
+      $this->assertEquals($user->id, $project->activity->first()->user->id);
 
 
-      $this->assertInstanceOf(User::class, $project->activity->first()->user);
-
-      // $this->assertEquals($user->id, $project->activity->first()->user->id);
 
     }
 }

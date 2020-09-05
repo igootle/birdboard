@@ -38,6 +38,18 @@ class Project extends Model
 
     }
 
+    public function invite(User $user)
+    {
+       return $this->members()->attach($user);
+    }
+
+    public function members()
+    {
+       // is it true that a project can have many members
+       // and also a member can have many projects
+      return $this->belongsToMany(User::class, 'project_members')->withTimestamps();
+    }
+
 
    public function activity()
    {
