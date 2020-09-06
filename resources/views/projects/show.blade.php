@@ -15,7 +15,8 @@
             alt="{{ $member->name }}'s avatar"
             class="rounded-full w-10 mr-2">
          @endforeach
-            <img src="{{ gravatar_url($project->owner->email) }}"
+            <img
+            src="{{ gravatar_url($project->owner->email) }}"
             alt="{{ $project->owner->name }}'s avatar"
             class="rounded-full w-10 mr-2">
 
