@@ -1,4 +1,4 @@
-<div class="bg-white rounded-lg p-5 shadow mt-5">
+<div class="bg-white rounded-lg p-5 shadow mt-5 mb-5 ">
    <ul class="text-sm list-reset">
 
       @foreach ($project->activity as $activity)
